@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: quiniela-mundial-2026
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: SERVE_FRONTEND
+        value: true
+      - key: HOST
+        value: 0.0.0.0
+      - key: DB_HOST
+        fromDatabase:
+          name: quiniela-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: quiniela-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: quiniela-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: quiniela-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: quiniela-db
+          property: database
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 24h
+
+databases:
+  - name: quiniela-db
+    databaseName: QuinielaMundial2026
+    user: postgres
+    plan: free
