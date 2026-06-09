@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-pitch-deepest text-gray-100 antialiased font-display;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen bg-hero-gradient bg-pitch-pattern bg-pitch relative;
+  }
+
+  .app-shell::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 opacity-30;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 104, 71, 0.35), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(0, 40, 104, 0.25), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 80%, rgba(206, 17, 38, 0.2), transparent);
+  }
+
+  .host-strip {
+    @apply flex h-1 w-full shrink-0;
+  }
+
+  .host-strip-mx {
+    @apply flex-[2] bg-mx-green;
+  }
+
+  .host-strip-us {
+    @apply flex-[2] bg-us-blue;
+  }
+
+  .host-strip-ca {
+    @apply flex-1 bg-ca-red;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-mx-green to-us-blue hover:from-mx-green/90 hover:to-us-blue/90
+      text-white font-semibold py-2.5 px-4 rounded-xl transition-all
+      shadow-lg shadow-mx-green/20 hover:shadow-mx-green/30
+      disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/15 text-white font-medium py-2 px-4 rounded-xl
+      border border-white/20 transition-colors backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2.5 bg-white/95 border border-gray-200 rounded-xl
+      text-gray-900 placeholder:text-gray-400
+      focus:outline-none focus:ring-2 focus:ring-mx-green/50 focus:border-mx-green;
+  }
+
+  .input-field-dark {
+    @apply w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-xl
+      text-white placeholder:text-white/40
+      focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400/50;
+  }
+
+  .card {
+    @apply bg-white/95 backdrop-blur-md rounded-2xl shadow-card border border-white/20 p-6
+      text-gray-900;
+  }
+
+  .card-glass {
+    @apply bg-white/10 backdrop-blur-xl rounded-2xl shadow-card border border-white/15 p-6 text-white;
+  }
+
+  .card-match {
+    @apply bg-gradient-to-br from-white/95 to-gray-50/95 backdrop-blur-md rounded-2xl
+      shadow-card border border-white/30 p-6 text-gray-900
+      hover:border-mx-green/30 hover:shadow-glow transition-all duration-300;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-white tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply text-white/60 mt-1;
+  }
+
+  .badge-group {
+    @apply text-xs font-bold px-2.5 py-1 rounded-full
+      bg-gradient-to-r from-us-blue to-mx-green text-white shadow-sm;
+  }
+
+  .nav-link-active {
+    @apply bg-white/15 text-white shadow-inner;
+  }
+
+  .nav-link {
+    @apply text-white/70 hover:text-white hover:bg-white/10;
+  }
+
+  .table-glass {
+    @apply bg-white/95 backdrop-blur-md rounded-2xl shadow-card border border-white/20 overflow-hidden;
+  }
+
+  .soccer-ball {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+  }
+
+  .pitch-center-circle {
+    @apply absolute rounded-full border-2 border-pitch-line pointer-events-none;
+  }
+}
