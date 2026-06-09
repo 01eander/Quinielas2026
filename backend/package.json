@@ -7,11 +7,13 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "seed:schema": "tsx src/scripts/seedSchema.ts",
     "seed:admin": "tsx src/scripts/seedAdmin.ts",
     "import:silliker": "tsx src/scripts/importSillikerUsers.ts",
     "seed:groups": "tsx src/scripts/seedGroupStage.ts",
     "reset:data": "tsx src/scripts/resetData.ts",
-    "test:db": "tsx src/scripts/testDbConnection.ts"
+    "test:db": "tsx src/scripts/testDbConnection.ts",
+    "db:setup": "tsx src/scripts/seedSchema.ts && tsx src/scripts/seedGroupStage.ts && tsx src/scripts/seedAdmin.ts"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
