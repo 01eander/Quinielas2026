@@ -39,6 +39,5 @@ services:
 
 databases:
   - name: quiniela-db
-    databaseName: QuinielaMundial2026
-    user: postgres
+    databaseName: quinielamundial2026
     plan: free
